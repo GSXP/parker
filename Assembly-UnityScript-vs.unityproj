@@ -45,14 +45,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scenes\Workspaces\WorkspaceAssets\HeroDoorExplorerController.js" />
+     <Compile Include="Assets\Scripts\Behavior.js" />
+     <Compile Include="Assets\Scripts\BehaviorImplHero.js" />
+     <Compile Include="Assets\Scripts\BehaviorImplMob.js" />
+     <Compile Include="Assets\Scripts\BehaviorImplNPC.js" />
+     <Compile Include="Assets\Scripts\BehaviorImplSidekick.js" />
+     <Compile Include="Assets\Scripts\Combat.js" />
      <Compile Include="Assets\Scripts\DoorController.js" />
      <Compile Include="Assets\Scripts\FaceDirection.js" />
      <Compile Include="Assets\Scripts\GSXPCam.js" />
-     <Compile Include="Assets\Scripts\MouseListener.js" />
+     <Compile Include="Assets\Scripts\HitList.js" />
      <Compile Include="Assets\Scripts\NPCMovement.js" />
      <Compile Include="Assets\Scripts\SidekickMovement.js" />
      <Compile Include="Assets\Scripts\Stats.js" />
-     <Compile Include="Assets\Scripts\Target.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

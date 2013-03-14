@@ -1,6 +1,6 @@
 #pragma strict
 
-private var speed : float = 30;
+var speed : float = 1;
 var door : GameObject;
 private var cameraDest : Vector3;
 
@@ -18,7 +18,7 @@ function Update() {
 		return;
 	
 	// Move towards the room with the door
-	transform.position = Vector3.MoveTowards(transform.position, cameraDest, speed * Time.deltaTime);
+	transform.position = Vector3.MoveTowards(transform.position, cameraDest, speed);
 	if (transform.position == cameraDest) {
 		arrived();
 	}
@@ -28,4 +28,5 @@ function Update() {
 function arrived() {
 	door.GetComponent(DoorController).arrived();
 	door = null;
+	Time.timeScale = 1;
 }

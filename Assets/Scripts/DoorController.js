@@ -52,6 +52,7 @@ function OnTriggerEnter(collidee : Collider) {
 	
 	// If it's the sidekick, have the camera follow
 	if (obj.name == "Sidekick") {
+		Time.timeScale = 0;
 		obj.SetActive(false);
 		obj.GetComponent(SidekickMovement).clearTarget();
 		Camera.main.GetComponent(GSXPCam).moveToDoor(targetDoor.gameObject);
