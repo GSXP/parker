@@ -5,6 +5,7 @@ class MobBehavior extends NPCBehavior {
 	
 	// special states
 	var onFire : boolean = false;
+	var frozen : boolean = false;
 
 	function MobBehavior(go : GameObject) {
 		super(go);
@@ -62,9 +63,6 @@ class MobBehavior extends NPCBehavior {
 	}
 	
 	function Update() {
-		// See if hero or sidekick is visible
-		CheckAggroRange();
-		
 		// on fire behavior
 		if (onFire) {
 		
@@ -78,9 +76,16 @@ class MobBehavior extends NPCBehavior {
 			super.movement.setTarget(gameObject.transform.position + Vector3(Mathf.Cos(angle) * 2, Mathf.Sin(angle) * 2, 0));
 		}
 		
+		// frozen behavior
+		else if (frozen) {
+			// just frozen, so it should just sit there....
+			// do nothing.
+		}
+		
 		// normal behavior
 		else {
-		
+			// See if hero or sidekick is visible
+			CheckAggroRange();
 			// NPCBehavior will move me closer to my target if I have one
 			super.Update();
 		}
@@ -95,6 +100,19 @@ class MobBehavior extends NPCBehavior {
 			// visibily aflame
 			gameObject.renderer.material.color = Color.yellow;
 			onFire = true;
+			frozen = false; // you can only be one or the other
+		}
+	}
+	
+	function IceSpell() {
+		if (frozen) {
+			gameObject.renderer.material.color = Color.blue;
+			frozen = false;
+		}
+		else {
+			gameObject.renderer.material.color = Color.cyan;
+			frozen = true;
+			onFire = false; // you can only be one or the other
 		}
 	}
 

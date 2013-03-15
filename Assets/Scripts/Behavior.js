@@ -53,9 +53,14 @@ function FireSpell() {
 	myBehavior.FireSpell();
 }
 
+// ice
+function IceSpell() {
+	myBehavior.IceSpell();
+}
+
 // Check if I'm in range of a spell cast
-function CheckSpellRange(target : Vector3) {
-	myBehavior.CheckSpellRange(target);
+function CheckSpellRange(target : Vector3, spellType: int) {
+	myBehavior.CheckSpellRange(target, spellType);
 }
 
 // Behavior Interface. Anything that can attack or be attacked should implement this
@@ -82,6 +87,9 @@ private class IBehavior {
 	// fire
 	function FireSpell() {}
 	
+	// ice
+	function IceSpell() {}
+	
 	// Check if I'm in range of a spell cast
-	function CheckSpellRange(target : Vector3) {}
+	function CheckSpellRange(target : Vector3, spellType : int) {}
 }

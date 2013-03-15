@@ -28,12 +28,15 @@ class NPCBehavior extends IBehavior {
 		}
 	}
 	
-	function CheckSpellRange(target : Vector3) {
+	function CheckSpellRange(target : Vector3, spellType : int) {
 		var distance = Mathf.Sqrt( (target.x - gameObject.transform.position.x)*(target.x - gameObject.transform.position.x) + (target.y - gameObject.transform.position.y)*(target.y - gameObject.transform.position.y) );
 		
 		if(stats.getSpellRange() >= distance) { 
 			// in range!
-			FireSpell();
+			if (spellType == 0)
+				FireSpell();
+			else if (spellType == 1)
+				IceSpell();
 		}
 		else {
 			// nothing to see here . .
