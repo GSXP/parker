@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BehaviorImplNPC.js">
+    <Files>
+      <File FileName="Assets\Scripts\NPCMovement.js" Line="22" Column="15" />
+      <File FileName="Assets\Scripts\BehaviorImplMob.js" Line="82" Column="23" />
+      <File FileName="Assets\Scripts\BehaviorImplNPC.js" Line="67" Column="26" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -60,6 +60,13 @@ class NPCBehavior extends IBehavior {
 		combat.target = currentTarget;
 	}
 	
+	function ClearTarget() {
+		currentTarget = null;
+		targetPriority = 4;
+		combat.target = currentTarget;
+		movement.clearTarget();
+	}
+	
 	// Makes sure the Movement Componenet always has the most current position of the target
 	// Could be better by giving movement the actual game object... but then movement would poll every update instead.
 	function Update() {

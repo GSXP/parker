@@ -79,7 +79,8 @@ class MobBehavior extends NPCBehavior {
 		// frozen behavior
 		else if (frozen) {
 			// just frozen, so it should just sit there....
-			// do nothing.
+			// Clear the target
+			super.ClearTarget();
 		}
 		
 		// normal behavior
