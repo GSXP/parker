@@ -4,14 +4,14 @@ function Start () {
 	var whoami : String = gameObject.name;
 	var X : float = 7; // From the design presetation
 	if (whoami == "Sidekick") {
-		loadStats(20, 0, 0, 1.5 * X, 0);
+		loadStats(20, 0, 0, 1.5 * X, 0, 0);
 	} else if (whoami == "Hero") {
-		loadStats(100, 10, 2.0, X, 5);
+		loadStats(100, 10, 2.0, X, 5, 2.5);
 	} else if (whoami == "Mob") {
-		loadStats(50, 5, 0.66, X, 5);
+		loadStats(50, 5, 0.66, X, 5, 5);
 	} else {
 		print("Whoa! Stats here! I don't know how to handle " + whoami);
-		loadStats(0, 0, 0, 0, 0);
+		loadStats(0, 0, 0, 0, 0, 0);
 	}
 }
 
@@ -30,9 +30,10 @@ private var BaseMoveSpeed : float; // Base speed
 private var SightRange : float; // Visible forward distance
 private var BaseSightRange : float; // Base value of the above
 private var SpellRange : float; // Range of spell casting
+private var BaseSpellRange :float; // Base value of the above
 private var DamageRatio : float; // 1.0 = Normal, 0.5 = Takes Half Damage, 2.0 = Takes Double Damage
 
-private function loadStats(maxHP : int, baseATK : int, baseATKSPD : float, baseMOVSPD : float, baseSight : float) {
+private function loadStats(maxHP : int, baseATK : int, baseATKSPD : float, baseMOVSPD : float, baseSight : float, baseSpellRange : float) {
 		MaxHealth = maxHP;
 		Health = maxHP;
 		BaseAttack = baseATK;
@@ -45,7 +46,8 @@ private function loadStats(maxHP : int, baseATK : int, baseATKSPD : float, baseM
 		AttackRange = 2; // Minimum to attack or be attacked by Hero (because he's so big)
 		BaseSightRange = baseSight;
 		SightRange = baseSight;
-		SpellRange = baseSight;
+		BaseSpellRange = baseSpellRange;
+		SpellRange = baseSpellRange;
 }
 
 // Getters

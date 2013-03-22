@@ -4,7 +4,11 @@
 class HeroBehavior extends NPCBehavior {
 	// A hit list to remember who to attack next
 	private var hitList : HitList;
-	
+
+	// special states
+	var speedy : boolean = false;
+	var solid : boolean = false;
+		
 	function HeroBehavior(go : GameObject) {
 		super(go);
 		hitList = new HitList();
@@ -49,5 +53,32 @@ class HeroBehavior extends NPCBehavior {
 			}
 		}
 		super.Update();
+	}
+	
+	function FireSpell() {
+		if (speedy) {
+			stats.resetMoveSpeed();
+			stats.resetAttackSpeed();
+			speedy = false;
+		}
+		else {
+			// visibily aflame
+			stats.modMoveSpeed(1.6);
+			stats.modAttackSpeed(1.6);
+			speedy = true;
+			solid = false; // you can only be one or the other
+		}
+	}
+	
+	function IceSpell() {
+		if (solid) {
+			stats.setDamageRatio(0.5);
+			solid = false;
+		}
+		else {
+			stats.setDamageRatio(1);
+			solid = true;
+			speedy = false; // you can only be one or the other
+		}
 	}
 }
